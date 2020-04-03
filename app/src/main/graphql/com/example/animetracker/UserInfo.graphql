@@ -1,0 +1,19 @@
+query FetchUser($name: String!) {
+    User(name: $name) {
+        id
+        name
+        avatar {
+            medium
+        }
+        statistics {
+            anime {
+                count
+                meanScore
+                minutesWatched
+                episodesWatched
+            }
+        }
+        about
+        updatedAt
+    }
+}

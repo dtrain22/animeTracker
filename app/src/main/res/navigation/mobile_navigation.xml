@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.animetracker.ui.profile.user_profile.profileFragment"
+        android:name="com.example.animetracker.ui.profile.user_profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
     <fragment
         android:id="@+id/animeListFragment"
-        android:name="com.example.animetracker.ui.profile.user_anime_list.animeListFragment"
+        android:name="com.example.animetracker.ui.profile.user_anime_list.AnimeListFragment"
         android:label="anime_list_fragment"
         tools:layout="@layout/anime_list_fragment" />
     <fragment
@@ -21,7 +21,7 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/animePageFragment"
-        android:name="com.example.animetracker.ui.anime.animePageFragment"
+        android:name="com.example.animetracker.ui.anime.AnimePageFragment"
         android:label="anime_page_fragment"
         tools:layout="@layout/anime_page_fragment" />
 </navigation>

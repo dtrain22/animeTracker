@@ -4,4 +4,6 @@
     <string name="anime_list">Anime List</string>
     <string name="setting">Setting</string>
     <string name="anime_info">Anime Info</string>
+    <string name="avatar">avatar</string>
+    <string name="userName">User Name</string>
 </resources>
