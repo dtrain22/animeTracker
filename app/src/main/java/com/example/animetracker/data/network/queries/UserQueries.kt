@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
-import com.example.animetracker.UserQuery
+import com.example.animetracker.FetchUserQuery
 import com.example.animetracker.data.models.UserModel
 import com.example.animetracker.data.network.ApolloConnector
 
@@ -16,16 +16,16 @@ class UserQueries(_apolloConnector: ApolloConnector) {
         val userData = UserModel()
 
         apolloConnector.setupApollo().query(
-            UserQuery
+            FetchUserQuery
                 .builder()
                 .name("dtrain22")
                 .build()
-        ).enqueue(object : ApolloCall.Callback<UserQuery.Data>() {
+        ).enqueue(object : ApolloCall.Callback<FetchUserQuery.Data>() {
             override fun onFailure(e: ApolloException) {
 
             }
 
-            override fun onResponse(response: Response<UserQuery.Data>) {
+            override fun onResponse(response: Response<FetchUserQuery.Data>) {
                 userData.userId = response.data()?.User()?.id()
                 userData.name = response.data()?.User()?.name()
                 userData.avatar = response.data()?.User()?.avatar()?.medium()
