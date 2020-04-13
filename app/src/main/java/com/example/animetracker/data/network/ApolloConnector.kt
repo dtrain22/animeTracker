@@ -4,7 +4,7 @@ import com.apollographql.apollo.ApolloClient
 import okhttp3.OkHttpClient
 
 
-val BASE_URL = "https://graphql.anilist.co"
+const val BASE_URL = "https://graphql.anilist.co"
 
 class ApolloConnector(
     _okHttpClient: OkHttpClient
