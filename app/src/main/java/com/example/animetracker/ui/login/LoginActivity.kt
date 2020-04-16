@@ -5,10 +5,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.animetracker.BuildConfig
 import com.example.animetracker.R
+import com.example.animetracker.data.models.UserModel
+import com.example.animetracker.ui.MainActivity
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.profile_fragment.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -21,6 +26,12 @@ class LoginActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+        viewModel.accessToken.observe(this, Observer<String> { string: String ->
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        })
     }
 
     override fun onResume() {
@@ -36,9 +47,5 @@ class LoginActivity : AppCompatActivity() {
             Uri.parse("https://anilist.co/api/v2/oauth/authorize" + "?client_id=" + BuildConfig.CLIENT_ID + "&redirect_uri=" + BuildConfig.REDIRECT_URI + "&response_type=code")
         )
         startActivity(intent)
-
-        //val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        //startActivity(intent)
-        //finish()
     }
 }
