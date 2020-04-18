@@ -1,5 +1,5 @@
-query FetchUser($name: String!) {
-    User(name: $name) {
+query FetchUser {
+    Viewer {
         id
         name
         avatar {
