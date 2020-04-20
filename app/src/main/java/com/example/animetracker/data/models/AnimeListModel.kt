@@ -1,5 +1,7 @@
 package com.example.animetracker.data.models
 
+import com.example.animetracker.type.MediaListStatus
+
 class AnimeListModel {
     var title: String? = null
 
@@ -9,7 +11,7 @@ class AnimeListModel {
 
     var totalEpisodes: Int? = null
 
-    var status: String? = null
+    var status: MediaListStatus? = null
 
     var coverImage: String? = null
 }
