@@ -33,14 +33,16 @@ class UserListQueries(_apolloConnector: ApolloConnector) {
 
                                 animeListModel.progress = item?.progress
                                 animeListModel.score = item?.score
-                                animeListModel.status = item?.status.toString()
+                                animeListModel.status = item?.status
                                 animeListModel.totalEpisodes = item?.media?.episodes
-                                animeListModel.title = item?.media?.title?.english
+                                animeListModel.title = item?.media?.title?.userPreferred
                                 animeListModel.coverImage = item?.media?.coverImage?.medium
 
                                 animeList.add(animeListModel)
                             }
                     }
+
+                    animeList.sortBy { it.title }
 
                     userList.postValue(animeList)
 
