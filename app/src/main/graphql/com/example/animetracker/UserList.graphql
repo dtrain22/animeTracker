@@ -1,0 +1,21 @@
+query FetchUserList {
+    MediaListCollection(userId: 400708, type: ANIME, forceSingleCompletedList: true) {
+        lists{
+            entries{
+                score
+                progress
+                status
+                media{
+                    coverImage{
+                        medium
+                    }
+                    episodes
+                    title{
+                        english
+                    }
+                }
+            }
+        }
+    }
+}
+
