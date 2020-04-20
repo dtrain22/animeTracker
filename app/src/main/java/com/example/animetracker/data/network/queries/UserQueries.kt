@@ -19,7 +19,7 @@ class UserQueries(_apolloConnector: ApolloConnector) {
     fun getUserInfo(_userData: MutableLiveData<UserModel>) {
         val userData = UserModel()
 
-        apolloConnector.setupApollo().query(FetchUserQuery.builder().build())
+        apolloConnector.setupApollo().query(FetchUserQuery())
             .requestHeaders(
                 RequestHeaders.builder()
                     .addHeader("Authorization", authHeader)
@@ -31,15 +31,15 @@ class UserQueries(_apolloConnector: ApolloConnector) {
             }
 
             override fun onResponse(response: Response<FetchUserQuery.Data>) {
-                userData.userId = response.data()?.Viewer()?.id()
-                userData.name = response.data()?.Viewer()?.name()
-                userData.avatar = response.data()?.Viewer()?.avatar()?.medium()
-                userData.watchCount = response.data()?.Viewer()?.statistics()?.anime()?.count()
-                userData.meanScore = response.data()?.Viewer()?.statistics()?.anime()?.meanScore()
-                userData.minutesWatched = response.data()?.Viewer()?.statistics()?.anime()?.minutesWatched()
-                userData.episodesWatched = response.data()?.Viewer()?.statistics()?.anime()?.episodesWatched()
-                userData.about = response.data()?.Viewer()?.about()
-                userData.lastUpdated = response.data()?.Viewer()?.updatedAt()
+                userData.userId = response.data()?.viewer?.id
+                userData.name = response.data()?.viewer?.name
+                userData.avatar = response.data()?.viewer?.avatar?.medium
+                userData.watchCount = response.data()?.viewer?.statistics?.anime?.count
+                userData.meanScore = response.data()?.viewer?.statistics?.anime?.meanScore
+                userData.minutesWatched = response.data()?.viewer?.statistics?.anime?.minutesWatched
+                userData.episodesWatched = response.data()?.viewer?.statistics?.anime?.episodesWatched
+                userData.about = response.data()?.viewer?.about
+                userData.lastUpdated = response.data()?.viewer?.updatedAt
 
                 _userData.postValue(userData)
             }

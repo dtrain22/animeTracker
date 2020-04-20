@@ -1,7 +1,5 @@
 package com.example.animetracker.ui.profile.user_profile
 
-import android.service.autofill.UserData
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.animetracker.data.models.UserModel
