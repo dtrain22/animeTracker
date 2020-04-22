@@ -63,7 +63,13 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
 
         Picasso.get().load(anime.coverImage).into(animeCoverImage)
 
-        animeTitle.text = anime.title
+        if(anime.title!!.length >= 30) {
+            val titleString = anime.title?.substring(0,29) + "..."
+            animeTitle.text = titleString
+        } else {
+            animeTitle.text = anime.title
+        }
+
         animeScore.text = ("Score: " + anime.score.toString())
 
         if(anime.totalEpisodes == null) {
