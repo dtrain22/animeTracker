@@ -25,7 +25,6 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
         val animeScore: TextView
         val animeCoverImage: ImageView
 
-
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
         init {
