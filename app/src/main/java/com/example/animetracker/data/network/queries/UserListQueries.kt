@@ -13,7 +13,6 @@ import com.example.animetracker.data.network.ApolloConnector
 class UserListQueries(_apolloConnector: ApolloConnector) {
 
     private val apolloConnector = _apolloConnector
-    private val authHeader = "Bearer " + AccessTokenObject.accessToken
 
     fun getUserList(userList: MutableLiveData<MutableList<AnimeListModel>>) {
         apolloConnector.setupApollo().query(FetchUserListQuery())
@@ -37,6 +36,7 @@ class UserListQueries(_apolloConnector: ApolloConnector) {
                                 animeListModel.totalEpisodes = item?.media?.episodes
                                 animeListModel.title = item?.media?.title?.userPreferred
                                 animeListModel.coverImage = item?.media?.coverImage?.medium
+                                animeListModel.mediaId = item?.mediaId
 
                                 animeList.add(animeListModel)
                             }

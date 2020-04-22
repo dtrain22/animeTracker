@@ -5,6 +5,7 @@ query FetchUserList {
                 score
                 progress
                 status
+                mediaId
                 media{
                     coverImage{
                         medium

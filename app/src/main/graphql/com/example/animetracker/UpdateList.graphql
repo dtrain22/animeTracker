@@ -1,0 +1,7 @@
+mutation updateUserList($mediaID: Int, $status: MediaListStatus, $scoreRaw: Int, $progress: Int){
+    SaveMediaListEntry(mediaId: $mediaID, status: $status, scoreRaw: $scoreRaw, progress: $progress){
+        status
+        progress
+        score
+    }
+}

@@ -14,4 +14,6 @@ class AnimeListModel {
     var status: MediaListStatus? = null
 
     var coverImage: String? = null
+
+    var mediaId: Int? = null
 }
