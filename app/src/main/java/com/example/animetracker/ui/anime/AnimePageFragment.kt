@@ -27,7 +27,6 @@ class AnimePageFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AnimePageViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

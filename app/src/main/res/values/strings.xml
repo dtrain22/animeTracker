@@ -8,4 +8,9 @@
     <string name="userName">User Name</string>
     <string name="login">Login with Anilist</string>
     <string name="password">Password</string>
+    <string name="status">status</string>
+    <string name="title">title</string>
+    <string name="score">score</string>
+    <string name="progress">progress</string>
+    <string name="coverimage">coverImage</string>
 </resources>
