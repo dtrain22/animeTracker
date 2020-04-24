@@ -6,7 +6,6 @@ import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
 import com.example.animetracker.FetchUserListQuery
-import com.example.animetracker.data.AccessTokenObject
 import com.example.animetracker.data.models.AnimeListModel
 import com.example.animetracker.data.network.ApolloConnector
 

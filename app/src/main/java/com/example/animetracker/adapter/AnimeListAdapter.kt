@@ -12,13 +12,17 @@ import com.example.animetracker.data.models.AnimeListModel
 import com.example.animetracker.type.MediaListStatus
 import com.squareup.picasso.Picasso
 
-class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerView.Adapter<AnimeListAdapter.ViewHolder>()
+class AnimeListAdapter(_mAnimeList: List<AnimeListModel>, _mOnListListener: OnListListener) : RecyclerView.Adapter<AnimeListAdapter.ViewHolder>()
 {
+    private val mAnimeList = _mAnimeList
+    private val mOnListListener = _mOnListListener
+
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, _onListListener: OnListListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
+        val onListListener: OnListListener = _onListListener
         val animeTitle: TextView
         val animeStatus: TextView
         val animeProgress: TextView
@@ -35,6 +39,12 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
             animeProgress = itemView.findViewById(R.id.animeProgress)
             animeScore = itemView.findViewById(R.id.animeScore)
             animeCoverImage = itemView.findViewById(R.id.animeCoverImage)
+
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View) {
+            onListListener.onClick(adapterPosition)
         }
     }
 
@@ -46,7 +56,8 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
         // Inflate the custom layout
         val contactView = inflater.inflate(R.layout.rv_anime, parent, false)
         // Return a new holder instance
-        return ViewHolder(contactView)
+
+        return ViewHolder(contactView, mOnListListener)
     }
 
     // Involves populating data into the item through holder
@@ -79,17 +90,7 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
         }
 
         animeStatus.text = anime.status.toString()
-        if(anime.status == MediaListStatus.COMPLETED){
-            animeStatus.setTextColor(Color.parseColor("#00FF00"))
-        } else if(anime.status == MediaListStatus.CURRENT){
-            animeStatus.setTextColor(Color.parseColor("#0000EE"))
-        } else if(anime.status == MediaListStatus.DROPPED){
-            animeStatus.setTextColor(Color.parseColor("#FF0000"))
-        } else if(anime.status == MediaListStatus.PAUSED){
-            animeStatus.setTextColor(Color.parseColor("#008080"))
-        } else if(anime.status == MediaListStatus.PLANNING){
-            animeStatus.setTextColor(Color.parseColor("#696969"))
-        }
+        animeStatus.setTextColor(Color.parseColor(getColorString(anime)))
 
         if(position %2 == 1)
         {
@@ -104,5 +105,20 @@ class AnimeListAdapter(private val mAnimeList: List<AnimeListModel>) : RecyclerV
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
         return mAnimeList.size
+    }
+
+    private fun getColorString(anime: AnimeListModel): String {
+        return when(anime.status){
+            MediaListStatus.COMPLETED -> "#00FF00"
+            MediaListStatus.CURRENT -> "#0000EE"
+            MediaListStatus.REPEATING -> "#0000EE"
+            MediaListStatus.DROPPED -> "#FF0000"
+            MediaListStatus.PAUSED -> "#008080"
+            else -> "#696969"
+        }
+    }
+
+    interface OnListListener{
+        fun onClick(position: Int)
     }
 }

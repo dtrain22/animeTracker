@@ -9,11 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.animetracker.BuildConfig
 import com.example.animetracker.R
-import com.example.animetracker.data.models.UserModel
 import com.example.animetracker.ui.MainActivity
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.profile_fragment.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        viewModel.accessToken.observe(this, Observer<String> { string: String ->
+        viewModel.accessToken.observe(this, Observer<String> {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()

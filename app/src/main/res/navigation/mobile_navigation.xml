@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.animetracker.ui.profile.user_profile.ProfileFragment"
-        android:label="profile_fragment"
+        android:label="Profile"
         tools:layout="@layout/profile_fragment" />
     <fragment
         android:id="@+id/animeListFragment"
         android:name="com.example.animetracker.ui.profile.user_anime_list.AnimeListFragment"
-        android:label="anime_list_fragment"
+        android:label="Anime List"
         tools:layout="@layout/anime_list_fragment" />
     <fragment
         android:id="@+id/settingsFragment"
@@ -22,6 +22,11 @@
     <fragment
         android:id="@+id/animePageFragment"
         android:name="com.example.animetracker.ui.anime.AnimePageFragment"
-        android:label="anime_page_fragment"
+        android:label="Anime"
+        tools:layout="@layout/anime_page_fragment" />
+    <fragment
+        android:id="@+id/updateListFragment"
+        android:name="com.example.animetracker.ui.profile.update_list_fragment.UpdateListFragment"
+        android:label="Update Entry"
         tools:layout="@layout/anime_page_fragment" />
 </navigation>

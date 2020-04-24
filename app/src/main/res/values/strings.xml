@@ -7,10 +7,22 @@
     <string name="avatar">avatar</string>
     <string name="userName">User Name</string>
     <string name="login">Login with Anilist</string>
-    <string name="password">Password</string>
-    <string name="status">status</string>
+    <string name="status">Status</string>
     <string name="title">title</string>
-    <string name="score">score</string>
-    <string name="progress">progress</string>
+    <string name="score">Score</string>
+    <string name="progress">Progress</string>
     <string name="coverimage">coverImage</string>
+    <string name="textview">TextView</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="totalepisodes">totalEpisodes</string>
+
+    <string-array name="status_array">
+        <item>CURRENT</item>
+        <item>PLANNING</item>
+        <item>COMPLETED</item>
+        <item>DROPPED</item>
+        <item>PAUSED</item>
+        <item>REPEATING</item>
+    </string-array>
 </resources>
