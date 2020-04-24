@@ -1,6 +1,7 @@
 package com.example.animetracker.data.network.mutations
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.api.Response
@@ -19,7 +20,8 @@ class UserListMutations(_apolloConnector: ApolloConnector) {
     fun updateUserEntry(_mediaID: Int,
                         _status: MediaListStatus,
                         _rawScore: Int,
-                        _progress: Int) {
+                        _progress: Int,
+                        success: MutableLiveData<Boolean>) {
 
         val updateUserList = UpdateUserListMutation(Input.optional(_mediaID),
             Input.optional(_status),
@@ -36,10 +38,12 @@ class UserListMutations(_apolloConnector: ApolloConnector) {
             .enqueue(object : ApolloCall.Callback<UpdateUserListMutation.Data>() {
                 override fun onFailure(e: ApolloException) {
                     Log.d("failed", e.toString())
+                    success.postValue(false)
                 }
 
                 override fun onResponse(response: Response<UpdateUserListMutation.Data>) {
                     Log.d("Success", "Info successfully updated")
+                    success.postValue(true)
                 }
             })
 

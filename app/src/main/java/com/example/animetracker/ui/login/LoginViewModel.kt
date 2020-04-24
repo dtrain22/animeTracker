@@ -5,14 +5,10 @@ import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.preference.PreferenceManager
 import com.example.animetracker.BuildConfig
 import com.example.animetracker.data.AuthCodeHandler
 import com.example.animetracker.data.network.repositories.AccessTokenRepository
-import okhttp3.*
-import org.json.JSONObject
-import java.io.IOException
-import java.util.concurrent.TimeUnit
+
 
 class LoginViewModel(
     _accessTokenRepository: AccessTokenRepository = AccessTokenRepository()

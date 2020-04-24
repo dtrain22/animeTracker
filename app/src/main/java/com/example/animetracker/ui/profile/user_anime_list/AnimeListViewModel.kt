@@ -15,7 +15,7 @@ class AnimeListViewModel : ViewModel() {
         MutableLiveData<MutableList<AnimeListModel>>()
     }
 
-    fun updateUserList() {
+    fun getUserList() {
         UserListQueries(apolloConnector).getUserList(userList)
     }
 }
