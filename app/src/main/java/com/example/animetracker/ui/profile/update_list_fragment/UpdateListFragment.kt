@@ -65,6 +65,8 @@ class UpdateListFragment : Fragment() {
             view.totalEpisodes.text = ("/ ?")
         }
 
+        view.scoreEntry.setText(entry.score!!.toInt().toString())
+        view.progressEntry.setText(entry.progress!!.toString())
 
         view.cancelButton.setOnClickListener {
             val fragmentManager = parentFragmentManager
