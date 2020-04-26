@@ -16,6 +16,14 @@
     <string name="cancel">Cancel</string>
     <string name="update">Update</string>
     <string name="totalepisodes">totalEpisodes</string>
+    <string name="search">Search</string>
+    <string name="season">Season</string>
+    <string name="description">Description</string>
+    <string name="about">About</string>
+    <string name="back">Back</string>
+    <string name="episode">Episode</string>
+    <string name="edit_entry">Edit Entry</string>
+    <string name="popularity">Popularity</string>
 
     <string-array name="status_array">
         <item>CURRENT</item>

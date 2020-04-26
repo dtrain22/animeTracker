@@ -54,7 +54,7 @@ class AnimeListAdapter(_mAnimeList: List<AnimeListModel>, _mOnListListener: OnLi
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val contactView = inflater.inflate(R.layout.rv_anime, parent, false)
+        val contactView = inflater.inflate(R.layout.rv_anime_list, parent, false)
         // Return a new holder instance
 
         return ViewHolder(contactView, mOnListListener)

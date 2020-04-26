@@ -39,7 +39,6 @@ class ProfileFragment : Fragment() {
             Picasso.get().load(userModel.avatar).into(profileAvatar)
         })
 
-        viewModel.updateUserData()
-
+        viewModel.fetchUserData()
     }
 }
