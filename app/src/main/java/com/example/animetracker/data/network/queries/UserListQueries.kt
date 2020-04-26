@@ -44,8 +44,6 @@ class UserListQueries(_apolloConnector: ApolloConnector) {
                     animeList.sortBy { it.title }
 
                     userList.postValue(animeList)
-
-                    Log.d("response", userList.value.toString())
                 }
             })
 

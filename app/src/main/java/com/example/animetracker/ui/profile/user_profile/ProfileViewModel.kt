@@ -15,7 +15,7 @@ class ProfileViewModel : ViewModel() {
         MutableLiveData<UserModel>()
     }
 
-    fun updateUserData() {
+    fun fetchUserData() {
         UserQueries(apolloConnector).getUserInfo(userData)
     }
 

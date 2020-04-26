@@ -16,12 +16,13 @@
         android:label="Anime List"
         tools:layout="@layout/anime_list_fragment" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.animetracker.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:id="@+id/animeSearchFragment"
+        android:name="com.example.animetracker.ui.anime.anime_search.AnimeSearchFragment"
+        android:label="Anime"
+        tools:layout="@layout/anime_search_fragment" />
     <fragment
         android:id="@+id/animePageFragment"
-        android:name="com.example.animetracker.ui.anime.AnimePageFragment"
+        android:name="com.example.animetracker.ui.anime.anime_page.AnimePageFragment"
         android:label="Anime"
         tools:layout="@layout/anime_page_fragment" />
     <fragment

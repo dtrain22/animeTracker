@@ -1,13 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.anime.AnimePageFragment">
+    tools:context=".ui.anime.anime_page.AnimePageFragment" >
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/anime_info" />
+        android:id="@+id/animeTitle"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/coverImage"
+        android:layout_width="150dp"
+        android:layout_height="225dp"
+        android:contentDescription="@string/coverimage"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="@+id/animeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/animeTitle" />
+
+    <TextView
+        android:id="@+id/season"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/season"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/animeTitle"
+        app:layout_constraintStart_toEndOf="@+id/coverImage"
+        app:layout_constraintTop_toTopOf="@+id/coverImage" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:scrollbars = "vertical"
+        android:text="@string/description"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/animeTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/animeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/about" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/about"
+        app:layout_constraintEnd_toEndOf="@+id/animeTitle"
+        app:layout_constraintStart_toStartOf="@+id/animeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/coverImage" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/back"
+        app:layout_constraintEnd_toEndOf="@+id/description"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/status"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/season"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/season"
+        app:layout_constraintTop_toBottomOf="@+id/season" />
+
+    <TextView
+        android:id="@+id/meanScore"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/score"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/status"
+        app:layout_constraintStart_toStartOf="@+id/status"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
+    <TextView
+        android:id="@+id/popularity"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/popularity"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/meanScore"
+        app:layout_constraintStart_toStartOf="@+id/meanScore"
+        app:layout_constraintTop_toBottomOf="@+id/meanScore" />
+
+    <Button
+        android:id="@+id/editEntryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_entry"
+        app:layout_constraintBottom_toBottomOf="@+id/coverImage"
+        app:layout_constraintEnd_toEndOf="@+id/popularity"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/popularity"
+        app:layout_constraintTop_toBottomOf="@+id/episodes"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/episodes"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/episode"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/popularity"
+        app:layout_constraintStart_toStartOf="@+id/popularity"
+        app:layout_constraintTop_toBottomOf="@+id/popularity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

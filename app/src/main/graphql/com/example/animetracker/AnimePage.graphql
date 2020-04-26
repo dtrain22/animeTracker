@@ -1,0 +1,18 @@
+query animePage($id: Int) {
+    Media(id: $id) {
+        title {
+            userPreferred
+        }
+        coverImage {
+            large
+        }
+        status
+        popularity
+        meanScore
+        description
+        season
+        seasonYear
+        episodes
+        format
+    }
+}
