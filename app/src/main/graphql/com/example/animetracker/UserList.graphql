@@ -1,5 +1,5 @@
-query FetchUserList {
-    MediaListCollection(userId: 400708, type: ANIME, forceSingleCompletedList: true) {
+query FetchUserList($userID: Int) {
+    MediaListCollection(userId: $userID, type: ANIME, forceSingleCompletedList: true) {
         lists{
             entries{
                 score

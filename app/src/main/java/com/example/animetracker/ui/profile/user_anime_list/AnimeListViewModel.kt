@@ -2,6 +2,7 @@ package com.example.animetracker.ui.profile.user_anime_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.animetracker.data.UserIDObject
 import com.example.animetracker.data.models.AnimeListModel
 import com.example.animetracker.data.network.ApolloConnector
 import com.example.animetracker.data.network.queries.UserListQueries
@@ -16,6 +17,6 @@ class AnimeListViewModel : ViewModel() {
     }
 
     fun getUserList() {
-        UserListQueries(apolloConnector).getUserList(userList)
+        UserListQueries(apolloConnector).getUserList(userList, UserIDObject.userId)
     }
 }

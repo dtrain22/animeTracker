@@ -3,6 +3,7 @@ package com.example.animetracker.data.network.queries
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.apollographql.apollo.ApolloCall
+import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
 import com.example.animetracker.FetchUserListQuery
@@ -13,8 +14,11 @@ class UserListQueries(_apolloConnector: ApolloConnector) {
 
     private val apolloConnector = _apolloConnector
 
-    fun getUserList(userList: MutableLiveData<MutableList<AnimeListModel>>) {
-        apolloConnector.setupApollo().query(FetchUserListQuery())
+    fun getUserList(userList: MutableLiveData<MutableList<AnimeListModel>>, userID: Int?) {
+
+        val query = FetchUserListQuery(Input.optional(userID))
+
+        apolloConnector.setupApollo().query(query)
             .enqueue(object : ApolloCall.Callback<FetchUserListQuery.Data>() {
                 override fun onFailure(e: ApolloException) {
                     Log.d("fail", "No response")

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.animetracker.R
+import com.example.animetracker.data.UserIDObject
 import com.example.animetracker.data.models.UserModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.profile_fragment.*
@@ -35,6 +36,7 @@ class ProfileFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         viewModel.userData.observe(viewLifecycleOwner, Observer<UserModel> {userModel: UserModel ->
+            UserIDObject.userId = userModel.userId
             userName.text = userModel.name
             Picasso.get().load(userModel.avatar).into(profileAvatar)
         })
