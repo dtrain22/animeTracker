@@ -2,6 +2,7 @@ package com.example.animetracker.ui.anime.anime_page
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.animetracker.R
 import com.example.animetracker.data.models.AnimePageModel
 import com.example.animetracker.data.models.UserModel
 import com.example.animetracker.type.MediaFormat
+import com.example.animetracker.ui.profile.update_list_fragment.UpdateListFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.anime_page_fragment.*
 import kotlinx.android.synthetic.main.anime_page_fragment.status
@@ -50,6 +52,17 @@ class AnimePageFragment : Fragment() {
             fragmentManager.popBackStack()
         }
 
+        view.editEntryButton.setOnClickListener{
+            val updateListFragment = UpdateListFragment()
+            val fragmentManager = this.parentFragmentManager
+            val argument = getInformation()
+            updateListFragment.arguments = argument
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.nav_host_fragment, updateListFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+
         view.description.movementMethod = ScrollingMovementMethod()
 
         return view
@@ -83,4 +96,16 @@ class AnimePageFragment : Fragment() {
         }
     }
 
+    private fun getInformation(): Bundle {
+        val bundle = Bundle()
+        val mediaElement = viewModel.animeEntry.value
+
+        bundle.putInt("mediaID", mediaID!!)
+        bundle.putString("title", mediaElement?.title)
+        if(mediaElement?.episodes != null) {
+            bundle.putInt("totalEpisodes", mediaElement.episodes!!)
+        }
+
+        return bundle
+    }
 }
