@@ -57,6 +57,12 @@ class AnimeListFragment : Fragment(), AnimeListAdapter.OnListListener {
         viewModel.getUserList()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.getUserList()
+    }
+
     override fun onClick(position: Int) {
         Log.d("select title", viewModel.userList.value?.get(position)?.title!!)
         val updateListFragment = UpdateListFragment()

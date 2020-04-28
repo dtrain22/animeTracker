@@ -33,10 +33,12 @@ class UpdateListFragment : Fragment() {
 
         entry.mediaId = arguments?.getInt("mediaID")
         entry.title = arguments?.getString("title")
-        entry.status = MediaListStatus.valueOf(arguments?.getString("status")!!)
-        entry.progress = arguments.getInt("progress")
-        entry.totalEpisodes = arguments.getInt("totalEpisodes")
-        entry.score = arguments.getInt("score").toDouble()
+        if (arguments?.getString("status") != null) {
+            entry.status = MediaListStatus.valueOf(arguments?.getString("status")!!)
+        }
+        entry.progress = arguments?.getInt("progress")
+        entry.totalEpisodes = arguments?.getInt("totalEpisodes")
+        entry.score = arguments?.getInt("score")?.toDouble()
     }
 
     override fun onCreateView(
@@ -69,8 +71,7 @@ class UpdateListFragment : Fragment() {
         view.progressEntry.setText(entry.progress!!.toString())
 
         view.cancelButton.setOnClickListener {
-            val fragmentManager = parentFragmentManager
-            fragmentManager.popBackStack()
+            returnToAnimeList()
         }
 
         view.updateButton.setOnClickListener {
@@ -102,10 +103,7 @@ class UpdateListFragment : Fragment() {
     }
 
     private fun returnToAnimeList(){
-        val animeListFragment = AnimeListFragment()
-        val fragmentManager = this.parentFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.nav_host_fragment, animeListFragment)
-        fragmentTransaction.commit()
+        val fragmentManager = parentFragmentManager
+        fragmentManager.popBackStack()
     }
 }
