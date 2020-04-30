@@ -3,7 +3,7 @@ query FetchUser {
         id
         name
         avatar {
-            medium
+            large
         }
         statistics {
             anime {

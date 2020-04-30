@@ -24,6 +24,11 @@
     <string name="episode">Episode</string>
     <string name="edit_entry">Edit Entry</string>
     <string name="popularity">Popularity</string>
+    <string name="total_entries">Total Entries</string>
+    <string name="anime_stats">Anime Stats</string>
+    <string name="mean_score">Mean Score</string>
+    <string name="episodes_watched">Episodes Watched</string>
+    <string name="watch_time">Watch Time</string>
 
     <string-array name="status_array">
         <item>CURRENT</item>

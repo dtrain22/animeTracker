@@ -33,7 +33,7 @@ class UserQueries(_apolloConnector: ApolloConnector) {
             override fun onResponse(response: Response<FetchUserQuery.Data>) {
                 userData.userId = response.data()?.viewer?.id
                 userData.name = response.data()?.viewer?.name
-                userData.avatar = response.data()?.viewer?.avatar?.medium
+                userData.avatar = response.data()?.viewer?.avatar?.large
                 userData.watchCount = response.data()?.viewer?.statistics?.anime?.count
                 userData.meanScore = response.data()?.viewer?.statistics?.anime?.meanScore
                 userData.minutesWatched = response.data()?.viewer?.statistics?.anime?.minutesWatched
