@@ -38,6 +38,10 @@ class ProfileFragment : Fragment() {
         viewModel.userData.observe(viewLifecycleOwner, Observer<UserModel> {userModel: UserModel ->
             UserIDObject.userId = userModel.userId
             userName.text = userModel.name
+            totalEntries.text = ("Total Entries: " + userModel.watchCount.toString())
+            averageScore.text = ("Mean Score: " + "%.1f".format(userModel.meanScore?.div(10)))
+            episodesWatched.text = ("Episodes Watched: " + userModel.episodesWatched.toString())
+            watchTime.text = ("Watch Time: " + "%.1f".format(userModel.minutesWatched?.toFloat()?.div(1440)) + " days")
             Picasso.get().load(userModel.avatar).into(profileAvatar)
         })
 
